@@ -1,6 +1,16 @@
 // pages/Amenities.js
 import React, { useState } from 'react';
-import { Box, Typography, Container, Grid, Card, CardContent, Button, Dialog, DialogContent } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  Dialog,
+  DialogContent
+} from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import WifiIcon from '@mui/icons-material/Wifi';
@@ -19,7 +29,7 @@ const amenities = [
   { icon: <AcUnitIcon fontSize="large" />, title: 'Air Conditioning' },
   { icon: <TvIcon fontSize="large" />, title: 'Smart TV' },
   { icon: <DirectionsCarIcon fontSize="large" />, title: 'Free Parking' },
-  { icon: <ShowerIcon fontSize="large" />, title: 'Essential Tolietries' }
+  { icon: <ShowerIcon fontSize="large" />, title: 'Essential Toiletries' },
 ];
 
 const galleryImages = [
@@ -31,14 +41,62 @@ const galleryImages = [
   { src: 'https://source.unsplash.com/random/400x400?cabin,6', location: 'Woodstock, NY' },
 ];
 
+// ✅ SectionDivider Component (must be outside main function)
+const SectionDivider = ({ image, children }) => (
+  <Box
+    sx={{
+      position: 'relative',
+      backgroundImage: `url(${image})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      width: '100%',
+      aspectRatio: '16 / 9', // Ensures full image is visible in proper proportions
+      my: 10,
+      borderRadius: '20px',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    }}
+  >
+    {/* Optional dark overlay for contrast */}
+    <Box
+      sx={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        height: '100%',
+        width: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: '20px',
+        zIndex: 1,
+      }}
+    />
+
+    {/* Text or children content */}
+    <Box
+      sx={{
+        zIndex: 2,
+        color: '#fff',
+        px: 2,
+      }}
+    >
+      {children}
+    </Box>
+  </Box>
+);
+
 const Amenities = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <Box sx={{ backgroundColor: '#fffefb' }}>
+      {/* Header Background Section */}
       <Box
         sx={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1562496147-9255ede9a5b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHRvd2Vsc3xlbnwwfHwwfHx8MA%3D%3D',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1562496147-9255ede9a5b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHRvd2Vsc3xlbnwwfHwwfHx8MA%3D%3D)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -46,8 +104,20 @@ const Amenities = () => {
           px: 2,
         }}
       >
-        <Container maxWidth="md" sx={{ backgroundColor: 'rgba(255,255,255,0.92)', borderRadius: 2, py: 6, px: { xs: 2, md: 6 } }}>
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <Container
+          maxWidth="md"
+          sx={{
+            backgroundColor: 'rgba(255,255,255,0.92)',
+            borderRadius: 2,
+            py: 6,
+            px: { xs: 2, md: 6 },
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <Box sx={{ textAlign: 'center', mb: 3 }}>
               <Box
                 sx={{
@@ -69,7 +139,11 @@ const Amenities = () => {
               </Box>
             </Box>
 
-            <Typography variant="body1" align="center" sx={{ maxWidth: 650, mx: 'auto', mb: 5, color: '#444' }}>
+            <Typography
+              variant="body1"
+              align="center"
+              sx={{ maxWidth: 650, mx: 'auto', mb: 5, color: '#444' }}
+            >
               Cozy Horizon Stays offers all the modern comforts you need to relax, recharge, and enjoy your stay.
             </Typography>
 
@@ -79,55 +153,67 @@ const Amenities = () => {
                   <Card elevation={1} sx={{ textAlign: 'center', py: 3 }}>
                     <CardContent>
                       <Box sx={{ mb: 1 }}>{amenity.icon}</Box>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>{amenity.title}</Typography>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                        {amenity.title}
+                      </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
               ))}
             </Grid>
-            {/* <Button
+
+            {/* Optional contact button */}
+            {/* 
+            <Button
               component={Link}
               to="/contact"
               variant="outlined"
-              sx={{ display: 'block', mx: 'auto', mt: 2, borderColor: '#c1a361', color: '#c1a361', '&:hover': { backgroundColor: '#c1a361', color: '#fff' } }}
+              sx={{
+                display: 'block',
+                mx: 'auto',
+                mt: 2,
+                borderColor: '#c1a361',
+                color: '#c1a361',
+                '&:hover': { backgroundColor: '#c1a361', color: '#fff' },
+              }}
             >
               Contact Us to Book
-            </Button> */}
+            </Button>
+            */}
           </motion.div>
         </Container>
       </Box>
 
-      {/* Section Divider */}
-      <Box
-        sx={{
-          position: 'relative',
-          backgroundImage: `url(${bedRoom})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '200vh',
-          width: '100%',
-          mt: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          textAlign: 'center',
-          color: '#fff', // white text for contrast
-          px: 2,
-        }}
-      >
+      {/* 🔸 Section Divider with bedroom image and overlay text */}
+      <SectionDivider image={bedRoom}>
+        {/* Optional alternate text */}
         {/* <Typography variant="h5" sx={{ fontWeight: 600, mt: 2, textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
           Ready to unwind with us?
         </Typography> */}
-        <Typography variant="h5" sx={{ fontWeight: 800, textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 700,
+            textShadow: '0 2px 4px rgba(0,0,0,0.4)',
+          }}
+        >
           We look forward to your stay!
         </Typography>
-      </Box>
+      </SectionDivider>
 
-      {/* Instagram-style Grid */}
-      {/* <Box sx={{ py: 10, backgroundColor: '#fff' }}>
+      {/* 🔸 Gallery Section (Commented Out – enable if needed) */}
+      {/* 
+      <Box sx={{ py: 10, backgroundColor: '#fff' }}>
         <Container>
-          <Typography variant="h4" align="center" sx={{ fontFamily: 'Playfair Display, serif', mb: 6, letterSpacing: '1px' }}>
+          <Typography
+            variant="h4"
+            align="center"
+            sx={{
+              fontFamily: 'Playfair Display, serif',
+              mb: 6,
+              letterSpacing: '1px',
+            }}
+          >
             FROM OUR GALLERY
           </Typography>
           <Grid container spacing={2}>
@@ -138,14 +224,23 @@ const Amenities = () => {
                   src={item.src}
                   alt={`Gallery ${index}`}
                   onClick={() => setSelectedImage(item)}
-                  sx={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer', transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s',
+                    '&:hover': { transform: 'scale(1.05)' },
+                  }}
                 />
               </Grid>
             ))}
           </Grid>
         </Container>
-      </Box> */}
+      </Box>
+      */}
 
+      {/* 🔸 Dialog for Expanded Gallery Image */}
       <Dialog open={!!selectedImage} onClose={() => setSelectedImage(null)} maxWidth="md">
         <DialogContent>
           {selectedImage && (

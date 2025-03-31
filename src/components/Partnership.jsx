@@ -14,21 +14,32 @@ const Partnership = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <Typography
-                        variant="h3"
-                        sx={{
-                            fontFamily: 'Playfair Display, serif',
-                            mb: 4,
-                            textAlign: 'center',
-                            letterSpacing: '1px',
-                        }}
-                    >
-                        PARTNERSHIPS WITH COZY HORIZON STAYS
-                    </Typography>
+                    <Box sx={{ textAlign: 'center', mb: 3 }}>
+                                 <Box
+                                   sx={{
+                                     display: 'inline-block',
+                                     borderBottom: '3px solid #c1a361',
+                                     pb: 1,
+                                   }}
+                                 >
+                                   <Typography
+                                     variant="h3"
+                                     sx={{
+                                       fontFamily: 'Playfair Display, serif',
+                                       letterSpacing: '1px',
+                                       fontWeight: 500,
+                                     }}
+                                   >
+                                     PARTNERSHIP WITH COZY HORIZON STAYS
+                                   </Typography>
+                                 </Box>
+                               </Box>
+                   
                     <Typography
                         variant="body1"
                         sx={{
                             maxWidth: 800,
+                            mt: 7,
                             mx: 'auto',
                             color: '#555',
                             textAlign: 'center',
@@ -64,7 +75,7 @@ const Partnership = () => {
                     >
                         Contact Us to Partner
                     </Button> */}
-                </motion.div>
+                
 
                 {/* FAQ Section */}
                 <Box sx={{ mt: 10 }}>
@@ -122,7 +133,8 @@ const Partnership = () => {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
-                                        Yes. No matter the length of stays 
+                                        Yes. No matter the length of stay, we require identity verification and
+                                        screening before a reservation. 
                                     </Typography>
                                 </AccordionDetails>
                             </Accordion>
@@ -133,19 +145,23 @@ const Partnership = () => {
                                     aria-controls="panel4a-content"
                                     id="panel4a-header"
                                 >
-                                    <Typography variant="h6">What types of businesses can partner with Cozy Horizon Stays?</Typography>
+                                    <Typography variant="h6">Does Cozy Horizon Stays have a cleaning team?</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
-                                        We welcome a variety of businesses, including real estate agents, tourism companies, transportation services, and local events. If you believe there’s an opportunity for collaboration, we’d love to hear from you!
+                                        After each stay, our professional cleaner team will inspect and clean each unit.
+                                        If a guest stays for an extended period, we clean the apartment weekly
+                                        upon request.
                                     </Typography>
                                 </AccordionDetails>
                             </Accordion>
                         </Grid>
                     </Grid>
                 </Box>
+                </motion.div>
             </Container>
         </Box>
+        
     );
 };
 

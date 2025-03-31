@@ -43,9 +43,27 @@ const Contact = () => {
     >
       <Container maxWidth="md" sx={{ backgroundColor: 'rgba(255,255,255,0.9)', borderRadius: 2, py: 6, px: { xs: 2, md: 6 } }}>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <Typography variant="h3" align="center" sx={{ fontFamily: 'Playfair Display, serif', mb: 3, letterSpacing: '1px', fontWeight: 500 }}>
-            CONTACT US
-          </Typography>
+          <Box sx={{ textAlign: 'center', mb: 3 }}>
+                        <Box
+                          sx={{
+                            display: 'inline-block',
+                            borderBottom: '3px solid #c1a361',
+                            pb: 1,
+                          }}
+                        >
+                          <Typography
+                            variant="h3"
+                            sx={{
+                              fontFamily: 'Playfair Display, serif',
+                              letterSpacing: '1px',
+                              fontWeight: 500,
+                            }}
+                          >
+                            Contact Us
+                          </Typography>
+                        </Box>
+                      </Box>
+          
           <Typography variant="body1" align="center" sx={{ maxWidth: 650, mx: 'auto', mb: 5, color: '#444' }}>
             Have a question or want to book directly? We’d love to hear from you.
             Send us a message and we’ll get back to you as soon as we can.
@@ -89,19 +107,19 @@ const Contact = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <EmailIcon color="action" />
                 <Typography variant="body1" component="a" href="mailto:hello@cozyhorizonstays.com" sx={{ textDecoration: 'none', color: 'inherit' }}>
-                  hello@cozyhorizonstays.com
+                  info@cozyhorizonstays.com
                 </Typography>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <PhoneIcon color="action" />
-                <Typography variant="body1">(123) 456-7890</Typography>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Typography variant="body1">(917) 373-8225</Typography>
+              </Box> */}
+              {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <InstagramIcon color="action" />
                 <Typography variant="body1" component="a" href="https://instagram.com/cozyhorizonstays" target="_blank" rel="noopener noreferrer" sx={{ textDecoration: 'none', color: 'inherit' }}>
                   @cozyhorizonstays
                 </Typography>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </motion.div>

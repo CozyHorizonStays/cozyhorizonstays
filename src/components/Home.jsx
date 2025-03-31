@@ -4,6 +4,7 @@ import { Box, Typography, Button, Container, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import livingRoom from '../Assets/livingRoom.png'
+import office from '../Assets/office.png'
 
 // const testimonials = [
 //   {
@@ -132,7 +133,7 @@ const Home = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Box sx={{ py: 10, backgroundColor: '#fffefb', textAlign: 'center' }}>
+        <Box sx={{ py: 10, backgroundColor: '##EFEDE4', textAlign: 'center' }}>
           <Container>
             <Typography
               variant="h4"
@@ -156,52 +157,135 @@ const Home = () => {
         </Box>
       </motion.div>
 
-      {/* <SectionDivider image="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62" /> */}
-      <SectionDivider image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
-      {/* Booking Coming Soon Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Box sx={{ py: 10, backgroundColor: '#f9f9f7', textAlign: 'center' }}>
-          <Container>
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: 'Playfair Display, serif',
-                mb: 2,
-                letterSpacing: '1px',
-              }}
-            >
-              BOOKING COMING SOON
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, color: '#666' }}>
-              We’re getting everything ready for your stay. In the meantime,
-              feel free to reach out with questions or requests.
-            </Typography>
-            <Button
-              variant="outlined"
-              component={Link}
-              to="/contact"
-              sx={{
-                borderColor: '#c1a361',
-                color: '#c1a361',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: '#c1a361',
-                  color: '#fff',
-                },
-              }}
-            >
-              Contact Us
-            </Button>
-          </Container>
-        </Box>
-      </motion.div>
+        {/* Comfort Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Grid
+            container
+            spacing={4}
+            sx={{ py: 10, px: 2, backgroundColor: '#fffefb' }}
+            alignItems="center"
+          >
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Box
+                  component="img"
+                  src={office}
+                  alt="Cozy office"
+                  sx={{ width: '100%', borderRadius: 2, boxShadow: 3 }}
+                />
+              </motion.div>
+            </Grid>
 
-      {/* Testimonials Section */}
-      {/* <Box sx={{ py: 10, backgroundColor: '#f9f9f7' }}>
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Box sx={{ backgroundColor: '#f4f1ed', p: 4, borderRadius: 2, width: '100%' }}>
+                    <Typography variant="h4" sx={{ fontFamily: 'Playfair Display, serif', mb: 2 }}>
+                      Join Our Journey
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontFamily: 'Playfair Display, serif',
+                        mb: 2,
+                        whiteSpace: 'normal',
+                        wordWrap: 'break-word',
+                      }}
+                    >
+                      We're building more than stays — we're building a community. Partner with us and be part of something cozy and meaningful.
+                    </Typography>
+                  </Box>
+
+                  <Button
+                    variant="outlined"
+                    component={Link}
+                    to="/partnership"
+                    sx={{
+                      mt: 3,
+                      borderColor: '#c1a361',
+                      color: '#c1a361',
+                      fontWeight: 'bold',
+                      '&:hover': {
+                        backgroundColor: '#c1a361',
+                        color: '#fff',
+                      },
+                    }}
+                  >
+                    Partnership Info.
+                  </Button>
+                </Box>
+              </motion.div>
+            </Grid>
+          </Grid>
+        </motion.div>
+
+
+
+        {/* <SectionDivider image="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62" /> */}
+        <SectionDivider image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+        {/* Booking Coming Soon Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Box sx={{ py: 10, backgroundColor: '#f9f9f7', textAlign: 'center' }}>
+            <Container>
+              <Typography
+                variant="h4"
+                sx={{
+                  fontFamily: 'Playfair Display, serif',
+                  mb: 2,
+                  letterSpacing: '1px',
+                }}
+              >
+                BOOKING COMING SOON
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 3, color: '#666' }}>
+                We’re getting everything ready for your stay. In the meantime,
+                feel free to reach out with questions or requests.
+              </Typography>
+              <Button
+                variant="outlined"
+                component={Link}
+                to="/contact"
+                sx={{
+                  borderColor: '#c1a361',
+                  color: '#c1a361',
+                  fontWeight: 'bold',
+                  '&:hover': {
+                    backgroundColor: '#c1a361',
+                    color: '#fff',
+                  },
+                }}
+              >
+                Contact Us
+              </Button>
+            </Container>
+          </Box>
+        </motion.div>
+
+        {/* Testimonials Section */}
+        {/* <Box sx={{ py: 10, backgroundColor: '#f9f9f7' }}>
         <Container>
           <Typography
             variant="h4"
@@ -245,7 +329,7 @@ const Home = () => {
           </Grid>
         </Container>
       </Box> */}
-      {/* 
+        {/* 
       Google Maps Section (Commented Out – enable when ready)
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <Box sx={{ py: 10, backgroundColor: '#f2f1ec' }}>
@@ -269,8 +353,8 @@ const Home = () => {
       </motion.div>
       */}
 
-      {/* Instagram Grid */}
-      {/* <InstagramGrid /> */}
+        {/* Instagram Grid */}
+        {/* <InstagramGrid /> */}
     </Box>
   );
 };
