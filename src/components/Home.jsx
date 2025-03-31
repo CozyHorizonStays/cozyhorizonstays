@@ -21,17 +21,14 @@ const testimonials = [
 
 const SectionDivider = ({ image }) => (
   <Box
-    component={motion.div}
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ duration: 1 }}
     sx={{
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      height: '80vh',
+      height: '60vh',
       width: '100%',
-      my: 8
+      my: 10,
+      borderRadius: '20px'
     }}
   />
 );
@@ -39,7 +36,15 @@ const SectionDivider = ({ image }) => (
 const InstagramGrid = () => (
   <Box sx={{ py: 10, backgroundColor: '#fff' }}>
     <Container>
-      <Typography variant="h4" align="center" sx={{ fontFamily: 'Playfair Display, serif', mb: 6, letterSpacing: '1px' }}>
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{
+          fontFamily: 'Playfair Display, serif',
+          mb: 6,
+          letterSpacing: '1px',
+        }}
+      >
         FROM OUR GALLERY
       </Typography>
       <Grid container spacing={2}>
@@ -64,7 +69,8 @@ const Home = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)',
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '100vh',
@@ -72,33 +78,86 @@ const Home = () => {
           alignItems: 'center',
           justifyContent: 'center',
           color: '#fff',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         <Container>
-          <Typography variant="h2" sx={{ fontFamily: 'Playfair Display, serif', fontWeight: 'bold', fontSize: { xs: '2rem', md: '3.5rem' }, mb: 2 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: 'Playfair Display, serif',
+              fontWeight: 'bold',
+              fontSize: { xs: '2rem', md: '3.5rem' },
+              mb: 2,
+            }}
+          >
             NATURE MEETS COMFORT
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, fontSize: { xs: '1rem', md: '1.25rem' } }}>
+          <Typography
+            variant="h6"
+            sx={{ mb: 4, fontSize: { xs: '1rem', md: '1.25rem' } }}
+          >
             Escape to a modern retreat surrounded by trees, sky, and peace.
           </Typography>
-          <Button variant="outlined" component={Link} to="/amenities" color="inherit" size="large">
+          <Button
+            variant="outlined"
+            component={Link}
+            to="/amenities"
+            color="inherit"
+            size="large"
+          >
             Explore Our Cabins
           </Button>
+        </Container>
+      </Box>
+
+      {/* Welcome Section */}
+      <Box sx={{ py: 10, backgroundColor: '#fffefb', textAlign: 'center' }}>
+        <Container>
+          <Typography
+            variant="h4"
+            sx={{
+              fontFamily: 'Playfair Display, serif',
+              mb: 2,
+              letterSpacing: '1px',
+            }}
+          >
+            WELCOME TO COZY HORIZON STAYS
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ maxWidth: 700, mx: 'auto', color: '#555' }}
+          >
+            Our stays are designed to give you the perfect balance of comfort
+            and connection to nature. Whether you’re planning a peaceful retreat
+            or a weekend adventure, we’re here to make it unforgettable.
+          </Typography>
         </Container>
       </Box>
 
       <SectionDivider image="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62" />
 
       {/* Booking Coming Soon Section */}
-      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <Box sx={{ py: 10, backgroundColor: '#f9f9f7', textAlign: 'center' }}>
           <Container>
-            <Typography variant="h4" sx={{ fontFamily: 'Playfair Display, serif', mb: 2, letterSpacing: '1px' }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontFamily: 'Playfair Display, serif',
+                mb: 2,
+                letterSpacing: '1px',
+              }}
+            >
               BOOKING COMING SOON
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: '#666' }}>
-              We’re getting everything ready for your stay. In the meantime, feel free to reach out with questions or requests.
+              We’re getting everything ready for your stay. In the meantime,
+              feel free to reach out with questions or requests.
             </Typography>
             <Button
               variant="outlined"
@@ -110,8 +169,8 @@ const Home = () => {
                 fontWeight: 'bold',
                 '&:hover': {
                   backgroundColor: '#c1a361',
-                  color: '#fff'
-                }
+                  color: '#fff',
+                },
               }}
             >
               Contact Us
@@ -122,7 +181,53 @@ const Home = () => {
 
       <SectionDivider image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
 
-      {/* Google Maps Section */}
+      {/* Testimonials Section */}
+      <Box sx={{ py: 10, backgroundColor: '#f9f9f7' }}>
+        <Container>
+          <Typography
+            variant="h4"
+            align="center"
+            sx={{
+              fontFamily: 'Playfair Display, serif',
+              mb: 6,
+              letterSpacing: '1px',
+            }}
+          >
+            WHAT OUR GUESTS SAY
+          </Typography>
+          <Grid container spacing={4} justifyContent="center">
+            {testimonials.map((testimonial, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Box
+                  sx={{
+                    border: '1px solid #eee',
+                    borderRadius: 2,
+                    p: 4,
+                    boxShadow: 1,
+                    height: '100%',
+                    backgroundColor: '#fff',
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{ fontStyle: 'italic', mb: 2 }}
+                  >
+                    “{testimonial.quote}”
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: 'bold', color: '#666' }}
+                  >
+                    {testimonial.author}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+ {/* 
+      Google Maps Section (Commented Out – enable when ready)
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <Box sx={{ py: 10, backgroundColor: '#f2f1ec' }}>
           <Container>
@@ -143,7 +248,9 @@ const Home = () => {
           </Container>
         </Box>
       </motion.div>
+      */}
 
+      {/* Instagram Grid */}
       <InstagramGrid />
     </Box>
   );
