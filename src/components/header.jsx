@@ -22,6 +22,7 @@ const Header = () => {
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Amenities', path: '/amenities' },
+    { label: 'Partnership', path: '/partnership'},
     { label: 'Contact', path: '/contact' }
   ];
 
@@ -105,7 +106,7 @@ const Header = () => {
               {item.label}
             </Button>
           ))}
-          <Button
+          {/* <Button
             variant="outlined"
             component={Link}
             to="/contact"
@@ -123,7 +124,7 @@ const Header = () => {
             }}
           >
             Learn More
-          </Button>
+          </Button> */}
         </Box>
 
         <IconButton

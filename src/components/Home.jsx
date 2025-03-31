@@ -3,21 +3,22 @@ import React from 'react';
 import { Box, Typography, Button, Container, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import livingRoom from '../Assets/livingRoom.png'
 
-const testimonials = [
-  {
-    quote: "Absolutely stunning cabin! Everything was spotless and cozy. We’ll be back!",
-    author: "– Jamie L."
-  },
-  {
-    quote: "Peaceful, quiet, and beautiful surroundings. The perfect escape.",
-    author: "– Marcus T."
-  },
-  {
-    quote: "Such thoughtful details inside. Felt like home from the moment we arrived.",
-    author: "– Priya K."
-  }
-];
+// const testimonials = [
+//   {
+//     quote: "Absolutely stunning cabin! Everything was spotless and cozy. We’ll be back!",
+//     author: "– Jamie L."
+//   },
+//   {
+//     quote: "Peaceful, quiet, and beautiful surroundings. The perfect escape.",
+//     author: "– Marcus T."
+//   },
+//   {
+//     quote: "Such thoughtful details inside. Felt like home from the moment we arrived.",
+//     author: "– Priya K."
+//   }
+// ];
 
 const SectionDivider = ({ image }) => (
   <Box
@@ -33,35 +34,35 @@ const SectionDivider = ({ image }) => (
   />
 );
 
-const InstagramGrid = () => (
-  <Box sx={{ py: 10, backgroundColor: '#fff' }}>
-    <Container>
-      <Typography
-        variant="h4"
-        align="center"
-        sx={{
-          fontFamily: 'Playfair Display, serif',
-          mb: 6,
-          letterSpacing: '1px',
-        }}
-      >
-        FROM OUR GALLERY
-      </Typography>
-      <Grid container spacing={2}>
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <Grid item xs={6} sm={4} md={2} key={item}>
-            <Box
-              component="img"
-              src={`https://source.unsplash.com/random/400x400?cabin,${item}`}
-              alt={`Gallery ${item}`}
-              sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-  </Box>
-);
+// const InstagramGrid = () => (
+//   <Box sx={{ py: 10, backgroundColor: '#fff' }}>
+//     <Container>
+//       <Typography
+//         variant="h4"
+//         align="center"
+//         sx={{
+//           fontFamily: 'Playfair Display, serif',
+//           mb: 6,
+//           letterSpacing: '1px',
+//         }}
+//       >
+//         FROM OUR GALLERY
+//       </Typography>
+//       <Grid container spacing={2}>
+//         {[1, 2, 3, 4, 5, 6].map((item) => (
+//           <Grid item xs={6} sm={4} md={2} key={item}>
+//             <Box
+//               component="img"
+//               src={`https://source.unsplash.com/random/400x400?cabin,${item}`}
+//               alt={`Gallery ${item}`}
+//               sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+//             />
+//           </Grid>
+//         ))}
+//       </Grid>
+//     </Container>
+//   </Box>
+// );
 
 const Home = () => {
   return (
@@ -69,35 +70,49 @@ const Home = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)',
+          position: 'relative',
+          backgroundImage: `url(${livingRoom})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '100vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#fff',
           textAlign: 'center',
+          color: '#fff',
         }}
       >
-        <Container>
+        {/* Black transparent overlay behind text */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.45)',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Content on top */}
+        <Container sx={{ position: 'relative', zIndex: 2 }}>
           <Typography
             variant="h2"
             sx={{
               fontFamily: 'Playfair Display, serif',
               fontWeight: 'bold',
-              fontSize: { xs: '2rem', md: '3.5rem' },
+              fontSize: { xs: '1rem', md: '2rem' },
               mb: 2,
             }}
           >
-            NATURE MEETS COMFORT
+            STAY WITH COMFORT, LEAVE WITH MEMORIES
           </Typography>
           <Typography
             variant="h6"
             sx={{ mb: 4, fontSize: { xs: '1rem', md: '1.25rem' } }}
           >
-            Escape to a modern retreat surrounded by trees, sky, and peace.
+            Whether you're unwinding, exploring, or celebrating — your perfect stay starts here.
           </Typography>
           <Button
             variant="outlined"
@@ -106,37 +121,43 @@ const Home = () => {
             color="inherit"
             size="large"
           >
-            Explore Our Cabins
+            Learn More
           </Button>
         </Container>
       </Box>
 
       {/* Welcome Section */}
-      <Box sx={{ py: 10, backgroundColor: '#fffefb', textAlign: 'center' }}>
-        <Container>
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: 'Playfair Display, serif',
-              mb: 2,
-              letterSpacing: '1px',
-            }}
-          >
-            WELCOME TO COZY HORIZON STAYS
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ maxWidth: 700, mx: 'auto', color: '#555' }}
-          >
-            Our stays are designed to give you the perfect balance of comfort
-            and connection to nature. Whether you’re planning a peaceful retreat
-            or a weekend adventure, we’re here to make it unforgettable.
-          </Typography>
-        </Container>
-      </Box>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Box sx={{ py: 10, backgroundColor: '#fffefb', textAlign: 'center' }}>
+          <Container>
+            <Typography
+              variant="h4"
+              sx={{
+                fontFamily: 'Playfair Display, serif',
+                mb: 2,
+                letterSpacing: '1px',
+              }}
+            >
+              WELCOME TO COZY HORIZON STAYS
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ maxWidth: 700, mx: 'auto', color: '#555' }}
+            >
+              Our stays are designed to offer the perfect blend of comfort and style.
+              Whether you're traveling for work, celebration, or a quick escape —
+              we’re here to make every moment unforgettable.
+            </Typography>
+          </Container>
+        </Box>
+      </motion.div>
 
-      <SectionDivider image="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62" />
-
+      {/* <SectionDivider image="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62" /> */}
+      <SectionDivider image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
       {/* Booking Coming Soon Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -179,10 +200,8 @@ const Home = () => {
         </Box>
       </motion.div>
 
-      <SectionDivider image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
-
       {/* Testimonials Section */}
-      <Box sx={{ py: 10, backgroundColor: '#f9f9f7' }}>
+      {/* <Box sx={{ py: 10, backgroundColor: '#f9f9f7' }}>
         <Container>
           <Typography
             variant="h4"
@@ -225,8 +244,8 @@ const Home = () => {
             ))}
           </Grid>
         </Container>
-      </Box>
- {/* 
+      </Box> */}
+      {/* 
       Google Maps Section (Commented Out – enable when ready)
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <Box sx={{ py: 10, backgroundColor: '#f2f1ec' }}>
@@ -251,7 +270,7 @@ const Home = () => {
       */}
 
       {/* Instagram Grid */}
-      <InstagramGrid />
+      {/* <InstagramGrid /> */}
     </Box>
   );
 };

@@ -5,18 +5,21 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import WifiIcon from '@mui/icons-material/Wifi';
 import KitchenIcon from '@mui/icons-material/Kitchen';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import KeyIcon from '@mui/icons-material/Key';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import TvIcon from '@mui/icons-material/Tv';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import ShowerIcon from '@mui/icons-material/Shower';
+import bedRoom from '../Assets/bedRoom.png';
 
 const amenities = [
-  { icon: <WifiIcon fontSize="large" />, title: 'Free Wi-Fi' },
+  { icon: <WifiIcon fontSize="large" />, title: 'Complementary Wi-Fi' },
   { icon: <KitchenIcon fontSize="large" />, title: 'Full Kitchen' },
-  { icon: <LocalFireDepartmentIcon fontSize="large" />, title: 'Fire Pit' },
+  { icon: <KeyIcon fontSize="large" />, title: 'Keyless Entry' },
   { icon: <AcUnitIcon fontSize="large" />, title: 'Air Conditioning' },
   { icon: <TvIcon fontSize="large" />, title: 'Smart TV' },
   { icon: <DirectionsCarIcon fontSize="large" />, title: 'Free Parking' },
+  { icon: <ShowerIcon fontSize="large" />, title: 'Essential Tolietries' }
 ];
 
 const galleryImages = [
@@ -35,7 +38,7 @@ const Amenities = () => {
     <Box sx={{ backgroundColor: '#fffefb' }}>
       <Box
         sx={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1583337130417-3346a1b1d2ce)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1562496147-9255ede9a5b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHRvd2Vsc3xlbnwwfHwwfHx8MA%3D%3D',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -45,9 +48,27 @@ const Amenities = () => {
       >
         <Container maxWidth="md" sx={{ backgroundColor: 'rgba(255,255,255,0.92)', borderRadius: 2, py: 6, px: { xs: 2, md: 6 } }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <Typography variant="h3" align="center" sx={{ fontFamily: 'Playfair Display, serif', mb: 3, letterSpacing: '1px', fontWeight: 500 }}>
-              AMENITIES
-            </Typography>
+            <Box sx={{ textAlign: 'center', mb: 3 }}>
+              <Box
+                sx={{
+                  display: 'inline-block',
+                  borderBottom: '3px solid #c1a361',
+                  pb: 1,
+                }}
+              >
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontFamily: 'Playfair Display, serif',
+                    letterSpacing: '1px',
+                    fontWeight: 500,
+                  }}
+                >
+                  AMENITIES
+                </Typography>
+              </Box>
+            </Box>
+
             <Typography variant="body1" align="center" sx={{ maxWidth: 650, mx: 'auto', mb: 5, color: '#444' }}>
               Cozy Horizon Stays offers all the modern comforts you need to relax, recharge, and enjoy your stay.
             </Typography>
@@ -64,32 +85,14 @@ const Amenities = () => {
                 </Grid>
               ))}
             </Grid>
-
-            <Typography variant="h5" align="center" sx={{ mt: 6, fontWeight: 500 }}>
-              Why Guests Love Us
-            </Typography>
-            <Typography variant="body1" align="center" sx={{ maxWidth: 600, mx: 'auto', mt: 2, mb: 4, color: '#666' }}>
-              "The cabin was even more beautiful in person! Every detail was thoughtfully placed. Super clean, cozy, and peaceful." – Sofia R.
-            </Typography>
-
-            <ul style={{ textAlign: 'left', maxWidth: 600, margin: '0 auto', paddingLeft: '1rem', color: '#555' }}>
-              <li>✔️ Comfortable beds & soft linens</li>
-              <li>✔️ Pet-friendly environment</li>
-              <li>✔️ Surrounded by nature, perfect for unplugging</li>
-              <li>✔️ Great for remote work or weekend getaways</li>
-            </ul>
-
-            <Typography variant="h5" align="center" sx={{ mt: 6, fontWeight: 500 }}>
-              Ready to unwind with us?
-            </Typography>
-            <Button
+            {/* <Button
               component={Link}
               to="/contact"
               variant="outlined"
               sx={{ display: 'block', mx: 'auto', mt: 2, borderColor: '#c1a361', color: '#c1a361', '&:hover': { backgroundColor: '#c1a361', color: '#fff' } }}
             >
               Contact Us to Book
-            </Button>
+            </Button> */}
           </motion.div>
         </Container>
       </Box>
@@ -97,17 +100,32 @@ const Amenities = () => {
       {/* Section Divider */}
       <Box
         sx={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1518837695005-2083093ee35b)',
+          position: 'relative',
+          backgroundImage: `url(${bedRoom})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '60vh',
+          height: '200vh',
           width: '100%',
           mt: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          color: '#fff', // white text for contrast
+          px: 2,
         }}
-      />
+      >
+        {/* <Typography variant="h5" sx={{ fontWeight: 600, mt: 2, textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
+          Ready to unwind with us?
+        </Typography> */}
+        <Typography variant="h5" sx={{ fontWeight: 800, textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
+          We look forward to your stay!
+        </Typography>
+      </Box>
 
       {/* Instagram-style Grid */}
-      <Box sx={{ py: 10, backgroundColor: '#fff' }}>
+      {/* <Box sx={{ py: 10, backgroundColor: '#fff' }}>
         <Container>
           <Typography variant="h4" align="center" sx={{ fontFamily: 'Playfair Display, serif', mb: 6, letterSpacing: '1px' }}>
             FROM OUR GALLERY
@@ -126,7 +144,7 @@ const Amenities = () => {
             ))}
           </Grid>
         </Container>
-      </Box>
+      </Box> */}
 
       <Dialog open={!!selectedImage} onClose={() => setSelectedImage(null)} maxWidth="md">
         <DialogContent>
